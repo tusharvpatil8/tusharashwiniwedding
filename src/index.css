@@ -2,7 +2,22 @@
 
 @import "tailwindcss";
 
-/* ===== DESIGN TOKENS ===== */
+/* ===== DESIGN TOKENS (Tailwind v4 style) ===== */
+@theme {
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8C97A;
+  --color-gold-dark: #9E7B2E;
+  --color-peach: #F4A98A;
+  --color-cream: #FDF6EC;
+  --color-blush: #F7C5BB;
+  --color-rose: #D4808E;
+  --color-burgundy: #7D2E46;
+  --color-deep: #3D1A2E;
+  --color-deep-2: #5a2840;
+  --color-emerald: #1e3a34; /* Unique Premium Highlight */
+  --color-sage: #7B8E7B;
+}
+
 :root {
   --gold: #C9A84C;
   --gold-light: #E8C97A;
@@ -14,6 +29,7 @@
   --burgundy: #7D2E46;
   --deep: #3D1A2E;
   --deep-2: #5a2840;
+  --emerald: #1e3a34;
 }
 
 /* ===== RESET ===== */

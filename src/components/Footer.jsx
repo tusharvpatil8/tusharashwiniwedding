@@ -41,7 +41,7 @@ export default function Footer() {
           className="font-display text-base tracking-widest mb-6"
           style={{ color: 'var(--gold)', letterSpacing: '4px' }}
         >
-          09 — 10 &nbsp; MAY &nbsp; 2026
+          08 - 09 - 10 &nbsp; MAY &nbsp; 2026
         </p>
 
         {/* Quote */}

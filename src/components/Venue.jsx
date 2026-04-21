@@ -51,9 +51,10 @@ export default function Venue() {
         }} className="venue-grid">
           {/* Address Card */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
             <div
               style={{
@@ -63,6 +64,7 @@ export default function Venue() {
                 padding: '2.5rem',
                 position: 'relative',
               }}
+              className="venue-card-inner shadow-2xl"
             >
               {/* Corner decors */}
               {[['top','left'],['top','right'],['bottom','left'],['bottom','right']].map(([v,h]) => (
@@ -128,11 +130,12 @@ export default function Venue() {
 
           {/* Map */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
           >
-            <div className="map-wrapper" style={{ height: '380px' }}>
+            <div className="map-wrapper shadow-2xl" style={{ height: '380px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(201,168,76,0.3)' }}>
               <iframe
                 title="Venue Location"
                 src={MAPS_EMBED}

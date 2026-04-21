@@ -1,10 +1,58 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
+// Custom Artistic Icons
+const MehndiIcon = ({ color }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '40px', height: '40px' }}>
+    <circle cx="12" cy="12" r="2" />
+    <path d="M12 8a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4z" />
+    <path d="M12 5a7 7 0 0 1 7 7 7 7 0 0 1-7 7 7 7 0 0 1-7-7 7 7 0 0 1 7-7z" opacity="0.3" />
+    {[0, 45, 90, 135, 180, 225, 270, 315].map(deg => (
+      <path key={deg} d="M12 2v3" transform={`rotate(${deg} 12 12)`} />
+    ))}
+    <circle cx="12" cy="12" r="9" strokeDasharray="1 3" opacity="0.5" />
+  </svg>
+);
+
+const HaldiIcon = ({ color }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '40px', height: '40px' }}>
+    <path d="M3 12a9 9 0 0 0 18 0" />
+    <path d="M21 12c0-3-2-5-5-5s-5 2-5 5" />
+    <path d="M11 7l-2-4" />
+    <circle cx="12" cy="12" r="3" opacity="0.2" fill={color} />
+    <path d="M7 12c0-2 1-3 3-3" opacity="0.5" />
+    <path d="M18 8l1-1" opacity="0.8" />
+    <path d="M15 4l1 1" opacity="0.8" />
+  </svg>
+);
+
+const WeddingIcon = ({ color }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '40px', height: '40px' }}>
+    <circle cx="8" cy="12" r="5" />
+    <circle cx="16" cy="12" r="5" />
+    <path d="M12 8a5 5 0 0 1 0 8" opacity="0.5" />
+    <path d="M8 7a3 3 0 0 1 0 6" opacity="0.3" />
+    <path d="M16 7a3 3 0 0 1 0 6" opacity="0.3" />
+    <path d="M12 2v2M12 20v2" opacity="0.2" />
+  </svg>
+);
+
 const events = [
   {
+    id: 'mehndi',
+    icon: MehndiIcon,
+    title: 'Mehndi Ceremony',
+    day: 'Friday',
+    date: '08 May 2026',
+    desc: 'An evening of henna, music, and dance! Let the colors of Mehndi celebrate the beginning of our beautiful journey together.',
+    bg: 'linear-gradient(145deg, #F0FFF4, #DCFCE7)',
+    border: 'rgba(34,197,94,0.5)',
+    accent: '#166534',
+    topBar: 'linear-gradient(90deg, transparent, #22C55E, transparent)',
+  },
+  {
     id: 'haldi',
-    emoji: '🌼',
+    icon: HaldiIcon,
     title: 'Haldi Ceremony',
     day: 'Saturday',
     date: '09 May 2026',
@@ -16,7 +64,7 @@ const events = [
   },
   {
     id: 'wedding',
-    emoji: '💍',
+    icon: WeddingIcon,
     title: 'Wedding Ceremony',
     day: 'Sunday',
     date: '10 May 2026',
@@ -60,18 +108,20 @@ export default function Events() {
             className="font-display text-base italic"
             style={{ color: 'var(--deep)', opacity: 0.55, letterSpacing: '2px' }}
           >
-            Two Days of Joy & Blessings
+            Three Days of Joy & Blessings
           </motion.p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {events.map((ev, i) => (
             <motion.div
               key={ev.id}
               initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.3 + i * 0.2 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: i * 0.2, ease: "easeOut" }}
+              className="flex"
             >
               <div
                 style={{
@@ -82,6 +132,9 @@ export default function Events() {
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'transform 0.35s ease, box-shadow 0.35s ease',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  width: '100%',
                 }}
                 className="event-card-inner"
               >
@@ -92,7 +145,7 @@ export default function Events() {
                   width: '100%',
                 }} />
 
-                <div style={{ padding: '2.5rem 2rem 2.5rem' }}>
+                <div style={{ padding: '2.5rem 2rem 2.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                   {/* Corner decorations */}
                   <div style={{
                     position: 'absolute', top: '16px', left: '16px',
@@ -119,20 +172,20 @@ export default function Events() {
                     opacity: 0.7,
                   }} />
 
-                  {/* Emoji Badge */}
+                  {/* Custom Icon Badge */}
                   <div style={{
-                    width: '72px', height: '72px',
+                    width: '80px', height: '80px',
                     borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.75)',
+                    background: 'rgba(255,255,255,0.8)',
                     border: `1px solid ${ev.border}`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '2rem',
                     margin: '0 auto 1.5rem',
-                    boxShadow: `0 4px 20px rgba(0,0,0,0.06)`,
+                    boxShadow: `0 8px 30px rgba(0,0,0,0.04)`,
+                    color: ev.accent,
                   }}>
-                    {ev.emoji}
+                    <ev.icon color={ev.accent} />
                   </div>
 
                   {/* Title */}
@@ -170,7 +223,7 @@ export default function Events() {
 
                   {/* Description */}
                   <p
-                    className="font-display text-base text-center font-light leading-relaxed"
+                    className="font-display text-base text-center font-light leading-relaxed mt-auto"
                     style={{ color: 'var(--deep)', opacity: 0.7 }}
                   >
                     {ev.desc}

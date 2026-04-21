@@ -120,6 +120,11 @@ export default function Hero() {
           >
             <span className="font-display text-base md:text-xl font-medium"
               style={{ color: 'var(--gold-light)', letterSpacing: '4px' }}>
+              08 MAY 2026
+            </span>
+            <span style={{ color: 'var(--gold)', opacity: 0.5 }}>•</span>
+            <span className="font-display text-base md:text-xl font-medium"
+              style={{ color: 'var(--gold-light)', letterSpacing: '4px' }}>
               09 MAY 2026
             </span>
             <motion.span 

@@ -11,6 +11,17 @@ export default function RSVP() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.name || !form.attending) return;
+
+    // WhatsApp Integration
+    const phoneNumber = "917767997388"; // Your provided number
+    const status = form.attending === 'yes' ? '✅ Joyfully Accepts' : '❌ Regretfully Declines';
+    const message = `*Wedding RSVP*%0A%0A*Name:* ${form.name}%0A*Status:* ${status}%0A*Message:* ${form.message || 'No additional message'}%0A%0A_Sent via Wedding Invitation_`;
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+    
     setSubmitted(true);
   };
 
@@ -74,8 +85,9 @@ export default function RSVP() {
         ) : (
           <motion.form
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             onSubmit={handleSubmit}
             className="rounded-3xl p-8 md:p-10"
             style={{
@@ -84,7 +96,13 @@ export default function RSVP() {
             }}
           >
             {/* Name */}
-            <div className="mb-5 text-left">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mb-5 text-left"
+            >
               <label
                 className="block font-display text-sm mb-2 tracking-widest uppercase"
                 style={{ color: 'var(--gold)', letterSpacing: '2px' }}
@@ -99,10 +117,16 @@ export default function RSVP() {
                 onChange={e => setForm({ ...form, name: e.target.value })}
                 required
               />
-            </div>
+            </motion.div>
 
             {/* Attending */}
-            <div className="mb-5 text-left">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mb-5 text-left"
+            >
               <label
                 className="block font-display text-sm mb-3 tracking-widest uppercase"
                 style={{ color: 'var(--gold)', letterSpacing: '2px' }}
@@ -129,10 +153,16 @@ export default function RSVP() {
                   </button>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Message */}
-            <div className="mb-7 text-left">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mb-7 text-left"
+            >
               <label
                 className="block font-display text-sm mb-2 tracking-widest uppercase"
                 style={{ color: 'var(--gold)', letterSpacing: '2px' }}
@@ -147,12 +177,19 @@ export default function RSVP() {
                 value={form.message}
                 onChange={e => setForm({ ...form, message: e.target.value })}
               />
-            </div>
+            </motion.div>
 
-            <button type="submit" className="btn-gold w-full justify-center">
+            <motion.button 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              type="submit" 
+              className="btn-gold w-full justify-center"
+            >
               <Send size={15} />
               Send RSVP
-            </button>
+            </motion.button>
           </motion.form>
         )}
       </div>

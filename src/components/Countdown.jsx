@@ -20,7 +20,11 @@ function Digit({ value, label }) {
   return (
     <div className="flex flex-col items-center gap-3">
       <div className="countdown-card" style={{ minWidth: '110px' }}>
-        <div
+        <motion.div
+          key={value}
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="font-display font-bold relative z-10"
           style={{
             fontSize: 'clamp(3rem, 7vw, 4.5rem)',
@@ -29,7 +33,7 @@ function Digit({ value, label }) {
           }}
         >
           {String(value).padStart(2, '0')}
-        </div>
+        </motion.div>
       </div>
       <span
         className="font-display text-xs uppercase"

@@ -16,8 +16,10 @@ export default function App() {
       {/* Ambient floating petals across entire page */}
       <FloatingPetals />
 
-      {/* Fixed navigation */}
+      {/* Floating Magic Menu */}
       <Navbar />
+
+
 
       {/* Main sections */}
       <main>

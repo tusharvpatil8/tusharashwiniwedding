@@ -70,39 +70,55 @@ export default function DownloadCard() {
       doc.text(tagline, W / 2, 76, { align: 'center' });
 
       // Events
-      let y = 92;
+      let y = 84;
+
+      // Mehndi
+      doc.setFillColor(240, 255, 244);
+      doc.roundedRect(18, y - 6, W - 36, 24, 3, 3, 'F');
+      doc.setDrawColor(34, 197, 94);
+      doc.setLineWidth(0.4);
+      doc.roundedRect(18, y - 6, W - 36, 24, 3, 3, 'S');
+      doc.setFont('helvetica', 'bolditalic');
+      doc.setFontSize(13);
+      doc.setTextColor(61, 26, 46);
+      doc.text('🌿 Mehndi Ceremony', W / 2, y + 4, { align: 'center' });
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(90, 40, 60);
+      doc.text('Friday, 08 May 2026', W / 2, y + 11, { align: 'center' });
+      y += 28;
 
       // Haldi
       doc.setFillColor(255, 248, 220);
-      doc.roundedRect(18, y - 6, W - 36, 28, 3, 3, 'F');
+      doc.roundedRect(18, y - 6, W - 36, 24, 3, 3, 'F');
       doc.setDrawColor(232, 163, 32);
       doc.setLineWidth(0.4);
-      doc.roundedRect(18, y - 6, W - 36, 28, 3, 3, 'S');
+      doc.roundedRect(18, y - 6, W - 36, 24, 3, 3, 'S');
       doc.setFont('helvetica', 'bolditalic');
-      doc.setFontSize(14);
+      doc.setFontSize(13);
       doc.setTextColor(61, 26, 46);
       doc.text('🌼 Haldi Ceremony', W / 2, y + 4, { align: 'center' });
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(9);
       doc.setTextColor(90, 40, 60);
-      doc.text('Saturday, 09 May 2026', W / 2, y + 12, { align: 'center' });
-      y += 36;
+      doc.text('Saturday, 09 May 2026', W / 2, y + 11, { align: 'center' });
+      y += 28;
 
       // Wedding
       doc.setFillColor(249, 235, 240);
-      doc.roundedRect(18, y - 6, W - 36, 28, 3, 3, 'F');
+      doc.roundedRect(18, y - 6, W - 36, 24, 3, 3, 'F');
       doc.setDrawColor(212, 128, 142);
       doc.setLineWidth(0.4);
-      doc.roundedRect(18, y - 6, W - 36, 28, 3, 3, 'S');
+      doc.roundedRect(18, y - 6, W - 36, 24, 3, 3, 'S');
       doc.setFont('helvetica', 'bolditalic');
-      doc.setFontSize(14);
+      doc.setFontSize(13);
       doc.setTextColor(61, 26, 46);
       doc.text('💍 Wedding Ceremony', W / 2, y + 4, { align: 'center' });
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(9);
       doc.setTextColor(90, 40, 60);
-      doc.text('Sunday, 10 May 2026', W / 2, y + 12, { align: 'center' });
-      y += 36;
+      doc.text('Sunday, 10 May 2026', W / 2, y + 11, { align: 'center' });
+      y += 32;
 
       // Venue
       doc.setDrawColor(201, 168, 76);
