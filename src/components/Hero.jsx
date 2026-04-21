@@ -24,7 +24,7 @@ export default function Hero() {
         animate={{ scale: [1.05, 1.15, 1.05] }}
         transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
       />
-      
+
       {/* Gradient Overlay */}
       <div className="absolute inset-0 hero-overlay" />
 
@@ -54,7 +54,7 @@ export default function Hero() {
       ))}
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         className="relative z-10 text-center px-6 max-w-4xl mx-auto"
         style={{ opacity: contentOpacity }}
       >
@@ -72,19 +72,19 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8, filter: 'blur(8px)' }}
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           transition={{ duration: 1.5, delay: 0.4, ease: 'easeOut' }}
-          className="font-script whitespace-nowrap"
+          className="font-script break-words px-4"
           style={{
-            fontSize: 'clamp(2.8rem, 10vw, 8rem)',
-            lineHeight: 1.1,
+            fontSize: 'clamp(2.5rem, 8vw, 8rem)',
+            lineHeight: 1.2,
             color: '#fff',
             textShadow: '0 8px 40px rgba(201,168,76,0.6)',
           }}
         >
-          Tushar &amp; Ashwini
+          Tushar <span className="inline-block">&amp;</span> Ashwini
         </motion.h1>
 
         {/* Divider */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.9, type: 'spring' }}
@@ -94,7 +94,7 @@ export default function Hero() {
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <Heart size={20} fill="var(--gold)" color="var(--gold)" />
+            <Heart size={25} fill="var(--rose)" color="var(--rose)" />
           </motion.div>
         </motion.div>
 
@@ -115,19 +115,25 @@ export default function Hero() {
           whileTap={{ scale: 0.95 }}
         >
           <div
-            className="glass-dark rounded-full px-8 py-4 inline-flex items-center gap-5 shadow-[0_0_30px_rgba(201,168,76,0.2)]"
+            className="glass-dark rounded-full px-4 py-4 inline-flex items-center gap-2 md:gap-5 shadow-[0_0_30px_rgba(201,168,76,0.2)]"
             style={{ border: '1px solid rgba(201,168,76,0.5)' }}
           >
             <span className="font-display text-base md:text-xl font-medium"
               style={{ color: 'var(--gold-light)', letterSpacing: '4px' }}>
               08 MAY 2026
             </span>
-            <span style={{ color: 'var(--gold)', opacity: 0.5 }}>•</span>
+            <motion.span
+              style={{ color: 'var(--gold)' }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+            >
+              ✦
+            </motion.span>
             <span className="font-display text-base md:text-xl font-medium"
               style={{ color: 'var(--gold-light)', letterSpacing: '4px' }}>
               09 MAY 2026
             </span>
-            <motion.span 
+            <motion.span
               style={{ color: 'var(--gold)' }}
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}

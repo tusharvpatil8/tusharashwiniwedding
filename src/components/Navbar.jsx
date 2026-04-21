@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 const links = [
-  { label: 'Home',    href: '#home' },
-  { label: 'Events',  href: '#events' },
-  { label: 'Venue',   href: '#venue' },
+  { label: 'Home', href: '#home' },
+  { label: 'Events', href: '#events' },
+  { label: 'Venue', href: '#venue' },
   { label: 'Gallery', href: '#gallery' },
-  { label: 'RSVP',    href: '#rsvp' },
+  { label: 'RSVP', href: '#rsvp' },
 ];
 
 export default function Navbar() {
@@ -37,18 +37,18 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
-      animate={{ 
+      animate={{
         y: 0,
-        paddingTop: scrolled ? '10px' : '20px',
-        paddingBottom: scrolled ? '10px' : '20px',
+        paddingTop: '0',
+        paddingBottom: scrolled ? '10px' : '0',
       }}
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50 transition-colors duration-500"
     >
       <div className="max-w-5xl mx-auto px-2 md:px-6">
-        <motion.div 
+        <motion.div
           animate={{
             scale: scrolled ? 0.95 : 1,
             backgroundColor: scrolled ? 'rgba(61,26,46,0.85)' : 'rgba(253,246,236,0)',
@@ -65,24 +65,24 @@ export default function Navbar() {
           </a>
 
           {/* Nav Links - Always Horizontal */}
-          <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
+          <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
             {links.map((link) => {
               const id = link.href.substring(1);
               const isActive = activeSection === id;
 
               return (
-                <a 
-                  key={link.label} 
-                  href={link.href} 
+                <a
+                  key={link.label}
+                  href={link.href}
                   className={`
-                    relative font-display text-[9px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.25em] font-bold transition-all duration-300
+                    relative font-display text-[8px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.25em] font-bold transition-all duration-300
                     ${isActive ? 'text-white' : 'text-gold-light/60 hover:text-gold-light'}
                   `}
                   style={{ textDecoration: 'none' }}
                 >
                   {link.label}
                   {isActive && (
-                    <motion.div 
+                    <motion.div
                       layoutId="activeTab"
                       className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gold shadow-[0_0_15px_rgba(201,168,76,0.9)]"
                     />
@@ -101,7 +101,7 @@ export default function Navbar() {
           </div>
 
           {/* Progress Bar */}
-          <motion.div 
+          <motion.div
             className="absolute bottom-0 left-8 right-8 h-[1px] bg-emerald/40 origin-left"
             style={{ scaleX }}
           />

@@ -34,7 +34,7 @@
 
 /* ===== RESET ===== */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--cream);
@@ -128,10 +128,10 @@ body {
   display: block;
   width: 80px;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold));
+  background: linear-gradient(to right, transparent, var(--burgundy));
 }
 .golden-divider::after {
-  background: linear-gradient(to left, transparent, var(--gold));
+  background: linear-gradient(to left, transparent, var(--burgundy));
 }
 
 /* ===== BUTTONS ===== */

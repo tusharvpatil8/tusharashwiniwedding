@@ -3,9 +3,9 @@ import { useInView } from 'react-intersection-observer';
 import { MapPin, Navigation } from 'lucide-react';
 
 const MAPS_EMBED =
-  'https://maps.google.com/maps?q=Sai+Angan+Society,+Jolwa,+Kadodara,+Surat,+Gujarat&output=embed';
+  'https://maps.google.com/maps?q=21.1692735,73.0079615&output=embed';
 const MAPS_LINK =
-  'https://maps.google.com/maps?q=Plot+No.+169+Sai+Angan+Society+Jolwa+Kadodara+Surat+Gujarat';
+  'https://www.google.com/maps/place/21%C2%B010\'09.4%22N+73%C2%B000\'28.7%22E/@21.1692735,73.0079615,17z/';
 
 export default function Venue() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -64,7 +64,7 @@ export default function Venue() {
                 padding: '2.5rem',
                 position: 'relative',
               }}
-              className="venue-card-inner shadow-2xl"
+              className="venue-card-inner shadow-2xl text-center md:text-left flex flex-col items-center md:items-start"
             >
               {/* Corner decors */}
               {[['top','left'],['top','right'],['bottom','left'],['bottom','right']].map(([v,h]) => (
@@ -103,7 +103,7 @@ export default function Venue() {
               <div style={{
                 width: '48px', height: '1px', marginBottom: '1.25rem',
                 background: 'linear-gradient(90deg, var(--gold), transparent)',
-              }} />
+              }} className="md:ml-0" />
 
               <p
                 className="font-display text-lg leading-relaxed mb-6"
@@ -119,7 +119,7 @@ export default function Venue() {
                 href={MAPS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold"
+                className="btn-gold w-fit"
                 style={{ textDecoration: 'none' }}
               >
                 <Navigation size={15} />
