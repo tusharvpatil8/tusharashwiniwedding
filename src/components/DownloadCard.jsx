@@ -174,10 +174,10 @@ export default function DownloadCard() {
             <FileText size={26} color="var(--gold)" />
           </div>
 
-          <p className="font-script text-4xl mb-2" style={{ color: 'var(--burgundy)' }}>
+          <h2 className="premium-heading premium-heading-dark mb-2">
             Download Invitation
-          </p>
-          <p className="font-display text-base italic mb-7" style={{ color: 'var(--deep)', opacity: 0.65 }}>
+          </h2>
+          <p className="premium-subheading mb-7">
             Save a beautiful copy of our wedding invitation
           </p>
 

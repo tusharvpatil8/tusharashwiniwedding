@@ -33,8 +33,7 @@ export default function RSVP() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="font-script text-5xl mb-3"
-          style={{ color: 'var(--gold-light)' }}
+          className="premium-heading mb-3"
         >
           RSVP
         </motion.p>
@@ -50,8 +49,7 @@ export default function RSVP() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="font-display text-base italic mb-10"
-          style={{ color: 'rgba(253,246,236,0.6)', letterSpacing: '2px' }}
+          className="premium-subheading premium-subheading-light mb-10"
         >
           Kindly respond by 1st May 2026
         </motion.p>

@@ -69,18 +69,72 @@ export default function Hero() {
 
         {/* Main Names with character animation */}
         <motion.h1
-          initial={{ opacity: 0, scale: 0.8, filter: 'blur(8px)' }}
+          initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 1.5, delay: 0.4, ease: 'easeOut' }}
-          className="font-script break-words px-4"
+          transition={{ duration: 1.6, delay: 0.4, ease: 'easeOut' }}
+          className="relative font-script break-words px-4 text-center"
           style={{
-            fontSize: 'clamp(2.5rem, 8vw, 8rem)',
+            fontSize: 'clamp(3rem, 10vw, 10rem)',
+            fontWeight: '600',
             lineHeight: 1.2,
-            color: '#fff',
-            textShadow: '0 8px 40px rgba(201,168,76,0.6)',
           }}
         >
-          Tushar <span className="inline-block">&amp;</span> Ashwini
+          {/* Glow Background */}
+          <span
+            className="absolute inset-0 blur-2xl opacity-40"
+            style={{
+              background: 'radial-gradient(circle, rgba(212,175,55,0.4) 0%, transparent 70%)',
+              zIndex: -1,
+            }}
+          />
+
+          {/* Tushar */}
+          <span
+            style={{
+              backgroundImage: 'linear-gradient(120deg, #ffffff, #f7c5bb, #e8c97a)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.8)) drop-shadow(0 2px 4px rgba(0,0,0,0.5))',
+            }}
+          >
+            Tushar
+          </span>
+
+          {/* Animated & */}
+          <motion.span
+            className="inline-block mx-3"
+            animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.15, 1] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            style={{
+              color: '#E8C97A',
+              filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.8))',
+            }}
+          >
+            &amp;
+          </motion.span>
+
+          {/* Ashwini */}
+          <span
+            style={{
+              backgroundImage: 'linear-gradient(120deg, #ffffff, #f7c5bb, #e8c97a)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.8)) drop-shadow(0 2px 4px rgba(0,0,0,0.5))',
+            }}
+          >
+            Ashwini
+          </span>
+
+          {/* Elegant underline */}
+          <motion.div
+            className="mx-auto mt-4 h-[2px] rounded-full"
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: '60%', opacity: 1 }}
+            transition={{ delay: 1, duration: 1.2 }}
+            style={{
+              background: 'linear-gradient(90deg, transparent, #d4af37, transparent)',
+            }}
+          />
         </motion.h1>
 
         {/* Divider */}
@@ -101,8 +155,12 @@ export default function Hero() {
         {/* Tagline */}
         <motion.p
           {...fadeUp(1.1)}
-          className="font-display text-xl md:text-2xl font-light italic max-w-2xl mx-auto"
-          style={{ color: 'rgba(253,246,236,0.95)', lineHeight: 1.8 }}
+          className="font-display text-xl md:text-2xl font-medium italic max-w-2xl mx-auto"
+          style={{
+            color: 'white',
+            lineHeight: 1.8,
+            textShadow: '0 2px 10px rgba(0,0,0,0.6)'
+          }}
         >
           Together with their families, invite you to celebrate their wedding
         </motion.p>
@@ -115,8 +173,8 @@ export default function Hero() {
           whileTap={{ scale: 0.95 }}
         >
           <div
-            className="glass-dark rounded-full px-4 py-4 inline-flex items-center gap-2 md:gap-5 shadow-[0_0_30px_rgba(201,168,76,0.2)]"
-            style={{ border: '1px solid rgba(201,168,76,0.5)' }}
+            className="glass-dark rounded-full px-4 py-4 inline-flex items-center gap-3 md:gap-6 shadow-[0_0_40px_rgba(0,0,0,0.4)]"
+            style={{ border: '1px solid rgba(232,201,122,0.4)', background: 'rgba(30, 15, 25, 0.7)' }}
           >
             <span className="font-display text-base md:text-xl font-medium"
               style={{ color: 'var(--gold-light)', letterSpacing: '4px' }}>

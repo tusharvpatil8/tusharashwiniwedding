@@ -51,9 +51,9 @@ export default function Navbar() {
         <motion.div
           animate={{
             scale: scrolled ? 0.95 : 1,
-            backgroundColor: scrolled ? 'rgba(61,26,46,0.85)' : 'rgba(253,246,236,0)',
-            borderColor: scrolled ? 'rgba(201,168,76,0.3)' : 'rgba(201,168,76,0)',
-            backdropFilter: scrolled ? 'blur(12px)' : 'blur(0px)',
+            backgroundColor: scrolled ? 'rgba(61, 26, 46, 0.95)' : 'rgba(30, 15, 25, 0.4)',
+            borderColor: scrolled ? 'rgba(201, 168, 76, 0.5)' : 'rgba(201, 168, 76, 0.2)',
+            backdropFilter: 'blur(15px)',
           }}
           transition={{ duration: 0.5 }}
           className="relative flex items-center justify-between px-4 md:px-8 py-2 md:py-3 rounded-full border shadow-2xl"

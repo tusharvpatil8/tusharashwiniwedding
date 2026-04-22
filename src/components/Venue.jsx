@@ -19,8 +19,7 @@ export default function Venue() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="font-script mb-3"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 3.5rem)', color: 'var(--burgundy)' }}
+            className="premium-heading premium-heading-dark mb-3"
           >
             The Venue
           </motion.p>
@@ -36,8 +35,7 @@ export default function Venue() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="font-display text-base italic"
-            style={{ color: 'var(--deep)', opacity: 0.55, letterSpacing: '2px' }}
+            className="premium-subheading"
           >
             Where the magic happens
           </motion.p>

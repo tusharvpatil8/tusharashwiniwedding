@@ -62,8 +62,7 @@ export default function Countdown() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="font-script mb-2"
-          style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', color: 'var(--gold-light)' }}
+          className="premium-heading mb-2"
         >
           Counting Down
         </motion.p>
@@ -72,8 +71,7 @@ export default function Countdown() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-base italic mb-12"
-          style={{ color: 'rgba(253,246,236,0.55)', letterSpacing: '3px' }}
+          className="premium-subheading premium-subheading-light mb-12"
         >
           until we say "I Do"
         </motion.p>

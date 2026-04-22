@@ -24,43 +24,37 @@ export default function Footer() {
         transition={{ duration: 0.8 }}
       >
         {/* Names */}
-        <p
-          className="font-script mb-2"
-          style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', color: 'white' }}
-        >
+        <h2 className="premium-heading mb-4">
           Tushar &amp; Ashwini
-        </p>
+        </h2>
 
         {/* Gold divider */}
-        <div className="golden-divider mx-auto mb-4">
-          <Heart size={14} fill="var(--gold)" color="var(--gold)" />
+        <div className="golden-divider mx-auto mb-6">
+          <Heart size={16} fill="var(--rose)" color="var(--rose)" />
         </div>
 
         {/* Date */}
-        <p
-          className="font-display text-base tracking-widest mb-6"
-          style={{ color: 'var(--gold)', letterSpacing: '4px' }}
-        >
+        <p className="premium-subheading premium-subheading-light mb-8">
           08 - 09 - 10 &nbsp; MAY &nbsp; 2026
         </p>
 
         {/* Quote */}
         <p
-          className="font-display text-lg italic max-w-md mx-auto mb-8 leading-relaxed"
-          style={{ color: 'rgba(253,246,236,0.6)' }}
+          className="font-display text-lg italic max-w-lg mx-auto mb-10 leading-relaxed"
+          style={{ color: 'rgba(253,246,236,0.7)', textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}
         >
           "A successful marriage requires falling in love many times, always with the same person."
         </p>
 
         {/* Bottom line */}
         <div
-          className="w-24 h-px mx-auto mb-6"
+          className="w-32 h-px mx-auto mb-8"
           style={{ background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }}
         />
 
         <p
-          className="font-display text-sm"
-          style={{ color: 'rgba(253,246,236,0.35)', letterSpacing: '2px' }}
+          className="font-display text-[10px] sm:text-xs uppercase tracking-[0.4em] font-medium"
+          style={{ color: 'var(--gold-light)', opacity: 0.7, letterSpacing: '5px' }}
         >
           With Love &amp; Blessings &nbsp; ✦ &nbsp; Tushar &amp; Ashwini
         </p>
