@@ -41,8 +41,8 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{
         y: 0,
-        paddingTop: '0',
-        paddingBottom: scrolled ? '10px' : '0',
+        paddingTop: scrolled ? '10px' : '20px',
+        paddingBottom: scrolled ? '10px' : '20px',
       }}
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50 transition-colors duration-500"
@@ -56,7 +56,7 @@ export default function Navbar() {
             backdropFilter: 'blur(15px)',
           }}
           transition={{ duration: 0.5 }}
-          className="relative flex items-center justify-between px-4 md:px-8 py-2 md:py-3 rounded-full border shadow-2xl"
+          className="relative flex items-center justify-between px-4 md:px-8 py-3 md:py-4 rounded-full border shadow-2xl"
         >
           {/* Brand/Logo - Shorter on mobile */}
           <a href="#home" className="font-script text-xl md:text-2xl text-gold-light hover:text-white transition-colors flex-shrink-0" style={{ textDecoration: 'none' }}>
@@ -94,7 +94,7 @@ export default function Navbar() {
 
           {/* Desktop Only Labels */}
           <div className="hidden lg:flex items-center">
-            <div className="w-px h-4 bg-gold/30 mx-3" />
+            <div className="w-px h-4 bg-gold/30 mx-4 md:mx-6" />
             <div className="font-display text-[10px] tracking-[0.3em] text-emerald font-bold opacity-80 uppercase">
               May 2026
             </div>

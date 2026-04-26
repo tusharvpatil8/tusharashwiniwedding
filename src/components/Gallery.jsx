@@ -3,15 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 // Use picsum photos with specific numeric seeds that give romantic/floral images
 const photos = [
-  { id: 'couple', src: '/couple-main.jpg', label: 'Tushar & Ashwini' },
-  { id: 'garden', src: '/couple-garden.jpg', label: 'A Beautiful Day' },
-  { id: 'couple2', src: '/couple2.png', label: 'Joyful Moments' },
-  { id: 1041, label: 'Rose Garden' },
-  { id: 'couple3', src: '/couple3.png', label: 'Together Forever' },
-  { id: 1062, label: 'Rose Petals' },
-  { id: 1043, label: 'Floral Bliss' },
-  { id: 1080, label: 'Pure Joy' },
-  { id: 1025, label: 'Blessings' },
+  { id: 'couple', src: '/tushar&ashwini.png', label: 'Tushar & Ashwini' },
 ];
 
 export default function Gallery() {
@@ -48,32 +40,25 @@ export default function Gallery() {
           </motion.p>
         </div>
 
-        {/* Grid — 3 cols on desktop, 2 on tablet, 1 on mobile */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1.5rem',
-          }}
-          className="gallery-grid"
-        >
+        {/* Single featured photo — centered */}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           {photos.map((p, i) => (
             <motion.div
               key={p.id}
               className="gallery-item group"
-              initial={{ opacity: 0, scale: 0.8, rotate: -2 }}
+              initial={{ opacity: 0, scale: 0.85, rotate: -2 }}
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                duration: 0.8, 
-                delay: i % 3 * 0.1, 
-                ease: [0.215, 0.61, 0.355, 1] 
+              transition={{
+                duration: 0.9,
+                delay: 0.1,
+                ease: [0.215, 0.61, 0.355, 1]
               }}
-              whileHover={{ scale: 1.05, rotate: 1, zIndex: 10 }}
-              style={{ aspectRatio: '1', borderRadius: '16px', overflow: 'hidden' }}
+              whileHover={{ scale: 1.03, rotate: 1, zIndex: 10 }}
+              style={{ width: '420px', maxWidth: '90vw', aspectRatio: '1', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.18)' }}
             >
               <img
-                src={p.src || `https://picsum.photos/id/${p.id}/500/500`}
+                src={p.src}
                 alt={p.label}
                 loading="lazy"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s ease' }}
